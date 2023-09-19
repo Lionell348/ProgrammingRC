@@ -1,0 +1,59 @@
+﻿<Window x:Class="ProgPart1Semes2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgPart1Semes2"
+        mc:Ignorable="d"
+          Title="Time Management App" Height="500" Width="600">
+    <Grid>
+        <StackPanel Margin="10">
+            
+            <GroupBox Header="Add Module">
+                <StackPanel>
+                    <TextBox x:Name="ModuleCodeTextBox" Margin="5" PlaceholderText="Module Code" />
+                    <TextBox x:Name="ModuleNameTextBox" Margin="5" PlaceholderText="Module Name" />
+                    <TextBox x:Name="ModuleCreditsTextBox" Margin="5" PlaceholderText="Number of Credits" />
+                    <TextBox x:Name="ModuleClassHoursTextBox" Margin="5" PlaceholderText="Class Hours Per Week" />
+                    <Button Content="Add Module" Click="AddModule_Click" Margin="5" />
+                </StackPanel>
+            </GroupBox>
+
+            
+            <GroupBox Header="Semester Information">
+                <StackPanel>
+                    <TextBox x:Name="WeeksTextBox" Margin="5" PlaceholderText="Number of Weeks in Semester" />
+                    <DatePicker x:Name="StartDatePicker" Margin="5" PlaceholderText="Start Date for First Week" />
+                </StackPanel>
+            </GroupBox>
+
+            
+            <ListView x:Name="ModuleListView" Margin="10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Code" Width="100" DisplayMemberBinding="{Binding Code}" />
+                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Credits" Width="80" DisplayMemberBinding="{Binding Credits}" />
+                        <GridViewColumn Header="Class Hours" Width="100" DisplayMemberBinding="{Binding ClassHoursPerWeek}" />
+                        <GridViewColumn Header="Self-Study Hours" Width="120" DisplayMemberBinding="{Binding SelfStudyHoursPerWeek}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            
+            <GroupBox Header="Record Study Hours">
+                <StackPanel>
+                    <DatePicker x:Name="StudyHoursDatePicker" Margin="5" PlaceholderText="Select Date" />
+                    <TextBox x:Name="HoursStudiedTextBox" Margin="5" PlaceholderText="Hours Studied" />
+                    <Button Content="Record Hours" Click="RecordStudyHours_Click" Margin="5" />
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="Remaining Self-Study Hours">
+                <StackPanel>
+                    <Label x:Name="RemainingSelfStudyHoursLabel" Margin="5" Content="Remaining Self-Study Hours This Week:" />
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>
